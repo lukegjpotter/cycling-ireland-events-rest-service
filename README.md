@@ -1,10 +1,17 @@
-#Cycling Ireland Events REST Service
+# Cycling Ireland Events REST Service
 
 A RESTful Service to deliver the Cycling Events from Cycling Ireland.
 
 Version 1 is currently in development.
 
-## Version 1 Features
+## Build, Run and Test
+To Build and Run the Application, open a Terminal and use: `/gradlew build && java -jar build/libs/cycling-ireland-events-rest-service-*.jar`
+
+To Test that the running Application is functional, open a new Terminal tab and use: `curl localhost:8080/roadraces`
+
+To Stop the Application, in the first Terminal, use `ctrl+C`
+
+## Version 1 Planned Features
 Returns the basic information about the Road Races.
 This information will be just showing which race has which categories, e.g. Waller Cup has A+, A1, ..., Womens.
 
