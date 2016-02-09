@@ -5,11 +5,14 @@ A RESTful Service to deliver the Cycling Events from Cycling Ireland.
 Version 1 is currently in development.
 
 ## Build, Run and Test
-To Build and Run the Application, open a Terminal and use: `/gradlew build && java -jar build/libs/cycling-ireland-events-rest-service-*.jar`
 
-To Test that the running Application is functional, open a new Terminal tab and use: `curl localhost:8080/roadraces`
+1. To Build and Run the Application, open a Terminal and use:<br>
+`./gradlew build && java -jar build/libs/cycling-ireland-events-rest-service-*.jar`
+2. To Test that the running Application is functional, open a new Terminal tab and use:<br>
+`curl localhost:8080/roadraces`
+3. To Stop the Application, in the first Terminal, use:<br>
+`ctrl+C`
 
-To Stop the Application, in the first Terminal, use `ctrl+C`
 
 ## Version 1 Planned Features
 Returns the basic information about the Road Races.
@@ -22,3 +25,6 @@ This information will be broken down by race category, e.g. Waller Cup; A1 race 
 ## Version 3 Planned Features
 Return very detailed information about the Road Races.
 This information will include which races are part of the Men's Nation League and the Women's National League.
+
+## Version 4 Planned Features
+A way to check if Events have been cancelled, prosponed and/or rescheduled.
