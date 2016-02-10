@@ -2,19 +2,25 @@ package com.lukegjpotter.spring.application.datasource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
-import com.lukegjpotter.spring.application.model.RoadRaceModel;
+import com.lukegjpotter.spring.application.service.CsvFileReaderService;
 
 @Component
 public class InMemoryCyclingEventDataSource implements CyclingEventDataSource {
 
+	private static final Logger log = Logger.getLogger(InMemoryCyclingEventDataSource.class.getName());
+
 	// The Instance
 	private static CyclingEventDataSource instance;
+
+	private CsvFileReaderService csvFileReaderService;
 
 	// Lists of Event Types
 	private static List<CyclingEventModel> roadRaces;
@@ -26,22 +32,26 @@ public class InMemoryCyclingEventDataSource implements CyclingEventDataSource {
 
 		return instance;
 	}
-	
+
 	private InMemoryCyclingEventDataSource() {
+		roadRaces = new ArrayList<>();
 	}
 
 	@PostConstruct
-	public static void populateRoadRacesMap() {
+	public void populateRoadRacesMap() {
 
-		roadRaces = new ArrayList<CyclingEventModel>();
-
-		roadRaces.add(new RoadRaceModel("Luke GJ Cup", "14/02/2016", "", "Sunday", "Leinster", "Road", "Road", "Yes",
-				"Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", 0, "Luke GJ Potter", "lukegjpotter@mail.com",
-				"Luke GJ CC", "100.00", "Lukestown Community Centre", "11.30"));
+		log.info("Populating the Road Races Map");
+		roadRaces = csvFileReaderService.readRoadRaces();
+		log.info("Populated the Road Races Map. Number of Enteries is " + roadRaces.size());
 	}
 
 	public List<CyclingEventModel> getAllRoadRaces() {
 
 		return roadRaces;
+	}
+
+	@Autowired
+	public void setCsvFileReaderService(CsvFileReaderService csvFileReaderService) {
+		this.csvFileReaderService = csvFileReaderService;
 	}
 }
