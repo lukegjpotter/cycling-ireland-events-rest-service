@@ -1,6 +1,6 @@
 package com.lukegjpotter.spring.application.controller;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +31,15 @@ public class CyclingEventControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+
 		roadRaces = new ArrayList<>();
-		roadRaces.add(new RoadRaceModel("Luke GJ Cup", "14/02/2016", "", "Sunday", "Leinster",
-				"Road", "Road", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", 0, "Luke GJ Potter",
-				"lukegjpotter@mail.com", "Luke GJ CC", "100.00", "Lukestown Community Centre", "11.30"));
-		
+		roadRaces.add(new RoadRaceModel("Luke GJ Cup", "14/02/2016", "", "Sunday", "Leinster", "Road", "Road", "Yes",
+				"Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", 0, "Luke GJ Potter", "lukegjpotter@mail.com",
+				"Luke GJ CC", "100.00", "Lukestown Community Centre", "11.30"));
+
 		CyclingEventService cyclingEventService = Mockito.mock(CyclingEventService.class);
 		Mockito.when(cyclingEventService.getAllRoadRaces()).thenReturn(roadRaces);
-		
+
 		cyclingEventController = new CyclingEventController(cyclingEventService);
 	}
 
@@ -49,7 +49,6 @@ public class CyclingEventControllerTest {
 
 	@Test
 	public void testGetAllRoadRaces() {
-
 		assertEquals(roadRaces, cyclingEventController.getAllRoadRaces());
 	}
 

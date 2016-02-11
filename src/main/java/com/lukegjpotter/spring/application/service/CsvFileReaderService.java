@@ -11,16 +11,14 @@ import org.springframework.stereotype.Service;
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceModel;
 
-@Service
+@Service("csvFileReaderService")
 public class CsvFileReaderService {
 
-	private List<CyclingEventModel> roadRaces;
-	
 	public List<CyclingEventModel> readRoadRaces() {
 
 		final String csvFileLocation = "src/main/resources/RoadRaces.csv";
 		BufferedReader bufferedReader = null;
-		roadRaces = new ArrayList<>();
+		List<CyclingEventModel> roadRaces = new ArrayList<>();
 
 		try {
 			bufferedReader = new BufferedReader(new FileReader(csvFileLocation));
@@ -28,12 +26,9 @@ public class CsvFileReaderService {
 			final String csvDelimiter = ",";
 
 			while ((line = bufferedReader.readLine()) != null) {
+
 				String[] roadRace = line.split(csvDelimiter);
-				
-//				for (int i=0; i < roadRace.length; i++) {
-//					System.out.println("P:" + i + " " + roadRace[i]);
-//				}
-				
+
 				String eventName = roadRace[0].trim();
 				String startDate = roadRace[1].trim();
 				String endDate = roadRace[2].trim();
@@ -49,7 +44,7 @@ public class CsvFileReaderService {
 				String isVets = roadRace[12].trim();
 				String isWoman = roadRace[13].trim();
 				String isJunior = roadRace[14].trim();
-				Integer isYouth = new Integer(roadRace[15].trim());//roadRace[15].trim().length() > 0 ? new Integer(roadRace[15].trim()) : new Integer(0);
+				Integer isYouth = new Integer(roadRace[15].trim());
 				String primaryContactPerson = roadRace[16].trim();
 				String primaryContactPersonsEmail = roadRace[17].trim();
 				String promotingClub = roadRace[18].trim();

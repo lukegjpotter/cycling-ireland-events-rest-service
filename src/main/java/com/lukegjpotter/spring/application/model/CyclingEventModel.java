@@ -77,10 +77,10 @@ public class CyclingEventModel {
 
 	@Override
 	public boolean equals(Object obj) {
-		
+
 		if (obj instanceof CyclingEventModel) {
 			CyclingEventModel otherCyclingEventModel = (CyclingEventModel) obj;
-			
+
 			return getEventName().equalsIgnoreCase(otherCyclingEventModel.getEventName())
 					&& getProvince().equalsIgnoreCase(otherCyclingEventModel.getProvince())
 					&& getEventType().equalsIgnoreCase(otherCyclingEventModel.getEventType())
@@ -88,7 +88,7 @@ public class CyclingEventModel {
 					&& gethQLocation().equalsIgnoreCase(otherCyclingEventModel.gethQLocation())
 					&& getStartDate().equals(otherCyclingEventModel.getStartDate());
 		}
-		
+
 		return false;
 	}
 }

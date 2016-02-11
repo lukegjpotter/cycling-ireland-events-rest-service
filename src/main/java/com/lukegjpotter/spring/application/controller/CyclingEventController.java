@@ -21,7 +21,6 @@ public class CyclingEventController {
 
 	@RequestMapping("/roadraces")
 	public List<CyclingEventModel> getAllRoadRaces() {
-
 		return cyclingEventService.getAllRoadRaces();
 	}
 
