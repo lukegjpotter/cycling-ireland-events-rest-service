@@ -2,7 +2,7 @@
 
 A RESTful Service to deliver the Cycling Events from Cycling Ireland.
 
-Version 1 is currently in development.
+Current Status: Version 2 is currently in development.
 
 ## Build, Run and Test
 
@@ -14,7 +14,7 @@ Version 1 is currently in development.
 `ctrl+C`
 
 
-## Version 1 Planned Features
+## Version 1 Features - Released
 Returns the basic information about the Road Races.
 This information will be just showing which race has which categories, e.g. Waller Cup has A+, A1, ..., Womens.
 
@@ -27,4 +27,4 @@ Return very detailed information about the Road Races.
 This information will include which races are part of the Men's Nation League and the Women's National League.
 
 ## Version 4 Planned Features
-A way to check if Events have been cancelled, prosponed and/or rescheduled.
+A way to check if Events have been cancelled, postponed and/or rescheduled.

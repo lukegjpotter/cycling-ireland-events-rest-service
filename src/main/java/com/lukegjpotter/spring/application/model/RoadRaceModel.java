@@ -1,6 +1,7 @@
 package com.lukegjpotter.spring.application.model;
 
-import com.lukegjpotter.spring.application.util.Utilities;
+import static com.lukegjpotter.spring.application.util.Utilities.convertStringToBoolean;
+import static com.lukegjpotter.spring.application.util.Utilities.convertStringtoDate;
 
 public class RoadRaceModel extends CyclingEventModel {
 
@@ -13,20 +14,20 @@ public class RoadRaceModel extends CyclingEventModel {
 			String primaryContactPersonsEmail, String promotingClub, String distance, String hQLocation,
 			String signOnTime) {
 
-		super(eventName, Utilities.convertStringtoDate(startDate), Utilities.convertStringtoDate(endDate), day,
-				province, eventType, primaryContactPerson, primaryContactPersonsEmail, promotingClub,
-				Double.parseDouble(distance), hQLocation, signOnTime);
+		super(eventName, convertStringtoDate(startDate), convertStringtoDate(endDate), day, province, eventType,
+				primaryContactPerson, primaryContactPersonsEmail, promotingClub, Double.parseDouble(distance),
+				hQLocation, signOnTime);
 
 		this.classification = classification;
-		this.isAPlus = Utilities.convertStringToBoolean(isAPlus);
-		this.isA1 = Utilities.convertStringToBoolean(isA1);
-		this.isA2 = Utilities.convertStringToBoolean(isA2);
-		this.isA3 = Utilities.convertStringToBoolean(isA3);
-		this.isA4 = Utilities.convertStringToBoolean(isA4);
-		this.isVets = Utilities.convertStringToBoolean(isVets);
-		this.isWoman = Utilities.convertStringToBoolean(isWoman);
-		this.isJunior = Utilities.convertStringToBoolean(isJunior);
-		this.isYouth = Utilities.convertStringToBoolean(isYouth.toString());
+		this.isAPlus = convertStringToBoolean(isAPlus);
+		this.isA1 = convertStringToBoolean(isA1);
+		this.isA2 = convertStringToBoolean(isA2);
+		this.isA3 = convertStringToBoolean(isA3);
+		this.isA4 = convertStringToBoolean(isA4);
+		this.isVets = convertStringToBoolean(isVets);
+		this.isWoman = convertStringToBoolean(isWoman);
+		this.isJunior = convertStringToBoolean(isJunior);
+		this.isYouth = convertStringToBoolean(isYouth.toString());
 	}
 
 	public String getClassification() {

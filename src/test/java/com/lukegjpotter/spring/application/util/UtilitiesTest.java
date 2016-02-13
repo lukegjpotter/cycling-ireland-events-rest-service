@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Test;
@@ -22,14 +20,9 @@ public class UtilitiesTest {
 	@Test
 	public void testConvertProperDateStringtoDate() {
 
-		String expectedDateString = "01/01/2001";
-		Date expected = null;
+		Date expected = new Date(1451606400000L);
 
-		try {
-			expected = new SimpleDateFormat(Constants.DATE_FORMAT).parse(expectedDateString);
-		} catch (ParseException e) {
-		}
-
+		String expectedDateString = "01/01/2016";
 		Date actual = Utilities.convertStringtoDate(expectedDateString);
 
 		assertEquals(expected, actual);
@@ -38,14 +31,9 @@ public class UtilitiesTest {
 	@Test
 	public void testConvertEmptyStringtoDate() {
 
-		String expectedDateString = "";
 		Date expected = null;
 
-		try {
-			expected = new SimpleDateFormat(Constants.DATE_FORMAT).parse(expectedDateString);
-		} catch (ParseException e) {
-		}
-
+		String expectedDateString = "";
 		Date actual = Utilities.convertStringtoDate(expectedDateString);
 
 		assertEquals(expected, actual);

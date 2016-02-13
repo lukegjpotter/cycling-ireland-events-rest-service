@@ -11,10 +11,8 @@ public class Utilities {
 
 	public static Date convertStringtoDate(String string) {
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT);
-
 		try {
-			return dateFormat.parse(string);
+			return new SimpleDateFormat(Constants.DATE_FORMAT).parse(string);
 		} catch (ParseException e) {
 			return null;
 		}

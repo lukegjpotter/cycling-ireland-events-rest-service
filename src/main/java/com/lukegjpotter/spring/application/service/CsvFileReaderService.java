@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -12,12 +13,13 @@ import org.springframework.stereotype.Service;
 
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceModel;
+import com.lukegjpotter.spring.application.util.DateOrderedCyclingEventsListComparator;
 
 @Service("csvFileReaderService")
 public class CsvFileReaderService {
-	
+
 	private static final Logger log = Logger.getLogger(CsvFileReaderService.class.getName());
-	
+
 	private String csvFileLocation;
 
 	public List<CyclingEventModel> readRoadRaces() {
@@ -75,7 +77,7 @@ public class CsvFileReaderService {
 			}
 
 		}
-
+		Collections.sort(roadRaces, new DateOrderedCyclingEventsListComparator());
 		return roadRaces;
 	}
 
