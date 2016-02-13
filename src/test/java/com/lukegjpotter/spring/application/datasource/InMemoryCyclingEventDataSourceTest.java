@@ -6,29 +6,29 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplication;
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceModel;
 import com.lukegjpotter.spring.application.service.CsvFileReaderService;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class,
+		InMemoryCyclingEventDataSource.class })
 public class InMemoryCyclingEventDataSourceTest {
 
+	@Autowired
 	private InMemoryCyclingEventDataSource cyclingEventDataSource;
+	@Autowired
+	CsvFileReaderService csvFileReaderService;
 	RoadRaceModel lukeGjCupRoadRace;
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	@Before
 	public void setUp() throws Exception {
@@ -39,16 +39,11 @@ public class InMemoryCyclingEventDataSourceTest {
 		List<CyclingEventModel> roadRaces = new ArrayList<>();
 		roadRaces.add(lukeGjCupRoadRace);
 
-		CsvFileReaderService csvFileReaderService = Mockito.mock(CsvFileReaderService.class);
+		csvFileReaderService = Mockito.mock(CsvFileReaderService.class);
 		Mockito.when(csvFileReaderService.readRoadRaces()).thenReturn(roadRaces);
 
-		cyclingEventDataSource = new InMemoryCyclingEventDataSource();
 		cyclingEventDataSource.setCsvFileReaderService(csvFileReaderService);
 		cyclingEventDataSource.populateRoadRacesMap();
-	}
-
-	@After
-	public void tearDown() throws Exception {
 	}
 
 	@Test

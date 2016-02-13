@@ -13,8 +13,10 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplication;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Utilities.class)
+@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, Utilities.class })
 public class UtilitiesTest {
 
 	@Test

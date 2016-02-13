@@ -14,14 +14,13 @@ public class CyclingEventController {
 
 	private CyclingEventService cyclingEventService;
 
-	@Autowired
-	public CyclingEventController(CyclingEventService cyclingEventService) {
-		this.cyclingEventService = cyclingEventService;
-	}
-
 	@RequestMapping("/roadraces")
 	public List<CyclingEventModel> getAllRoadRaces() {
 		return cyclingEventService.getAllRoadRaces();
 	}
 
+	@Autowired
+	public void setCyclingEventService(CyclingEventService cyclingEventService) {
+		this.cyclingEventService = cyclingEventService;
+	}
 }
