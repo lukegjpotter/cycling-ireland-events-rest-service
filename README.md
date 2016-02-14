@@ -2,6 +2,8 @@
 
 A RESTful Service to deliver the Cycling Events from Cycling Ireland.
 
+[![Build Status](https://travis-ci.org/lukegjpotter/cycling-ireland-events-rest-service.svg?branch=master)](https://travis-ci.org/lukegjpotter/cycling-ireland-events-rest-service)
+
 Current Status: Version 2 is currently in development.
 
 ## Build, Run and Test
