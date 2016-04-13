@@ -4,7 +4,6 @@ A RESTful Service to deliver the Cycling Events from Cycling Ireland.
 
 [![Build Status](https://travis-ci.org/lukegjpotter/cycling-ireland-events-rest-service.svg?branch=master)](https://travis-ci.org/lukegjpotter/cycling-ireland-events-rest-service)
 [![Coverage Status](https://coveralls.io/repos/github/lukegjpotter/cycling-ireland-events-rest-service/badge.svg?branch=master)](https://coveralls.io/github/lukegjpotter/cycling-ireland-events-rest-service?branch=master)
-[![Code Climate](https://codeclimate.com/github/lukegjpotter/cycling-ireland-events-rest-service/badges/gpa.svg)](https://codeclimate.com/github/lukegjpotter/cycling-ireland-events-rest-service)
 [![Issue Count](https://codeclimate.com/github/lukegjpotter/cycling-ireland-events-rest-service/badges/issue_count.svg)](https://codeclimate.com/github/lukegjpotter/cycling-ireland-events-rest-service)
 
 Current Status: Version 2 is currently in development.
