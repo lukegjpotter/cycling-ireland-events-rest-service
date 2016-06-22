@@ -22,7 +22,8 @@ Postgres database.
    `./gradlew build && java -jar build/libs/cycling-ireland-events-rest-service-*.jar`
 1. To Test that the running Application is functional, open a new Terminal tab
    and use:  
-   `curl localhost:8080/roadraces`
+   `curl localhost:8080/roadraces/1` to read from the local database.
+   `curl localhost:8080/roadraces` to read from the CSV file.
 1. To Stop the Application, in the first Terminal, use:  
    `ctrl+C`
 
@@ -35,7 +36,7 @@ Postgres database.
 
 ## Version 2.0 Features - In Development
 
-* [ ] Return detailed information about the Road Races from a local database.  
+* [x] Return detailed information about the Road Races from a local database.  
       This information will be broken down by race category, e.g. Waller Cup;
       A1 race is 130km starts at 11:00, ... A4 race is 50km starts at 11:20.
 * [ ] Provide a REST Resource to GET Road Races happening between two dates.
