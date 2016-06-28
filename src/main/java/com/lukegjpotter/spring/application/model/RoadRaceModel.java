@@ -1,7 +1,7 @@
 package com.lukegjpotter.spring.application.model;
 
-import static com.lukegjpotter.spring.application.util.Utilities.convertStringToBoolean;
-import static com.lukegjpotter.spring.application.util.Utilities.convertStringtoDate;
+import static com.lukegjpotter.spring.application.util.ModelUtilities.convertStringToBoolean;
+import static com.lukegjpotter.spring.application.util.ModelUtilities.convertStringtoDate;
 
 public class RoadRaceModel extends CyclingEventModel {
 

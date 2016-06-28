@@ -14,8 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, Utilities.class })
-public class UtilitiesTest {
+@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, ModelUtilities.class })
+public class ModelUtilitiesTest {
 
 	@Test
 	public void testConvertProperDateStringtoDate() {
@@ -23,7 +23,7 @@ public class UtilitiesTest {
 		Date expected = new Date(1451606400000L);
 
 		String expectedDateString = "01/01/2016";
-		Date actual = Utilities.convertStringtoDate(expectedDateString);
+		Date actual = ModelUtilities.convertStringtoDate(expectedDateString);
 
 		assertEquals(expected, actual);
 	}
@@ -34,28 +34,28 @@ public class UtilitiesTest {
 		Date expected = null;
 
 		String expectedDateString = "";
-		Date actual = Utilities.convertStringtoDate(expectedDateString);
+		Date actual = ModelUtilities.convertStringtoDate(expectedDateString);
 
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testConvertYesStringToBoolean() {
-		assertTrue(Utilities.convertStringToBoolean("Yes"));
+		assertTrue(ModelUtilities.convertStringToBoolean("Yes"));
 	}
 
 	@Test
 	public void testConvertEmptyStringToBoolean() {
-		assertFalse(Utilities.convertStringToBoolean(""));
+		assertFalse(ModelUtilities.convertStringToBoolean(""));
 	}
 
 	@Test
 	public void testConvertOneIntegerToBoolean() {
-		assertTrue(Utilities.convertStringToBoolean(new Integer(1).toString()));
+		assertTrue(ModelUtilities.convertStringToBoolean(new Integer(1).toString()));
 	}
 
 	@Test
 	public void testConvertZeroIntegerToBoolean() {
-		assertFalse(Utilities.convertStringToBoolean(new Integer(0).toString()));
+		assertFalse(ModelUtilities.convertStringToBoolean(new Integer(0).toString()));
 	}
 }

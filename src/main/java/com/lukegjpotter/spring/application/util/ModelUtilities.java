@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Utilities {
+public class ModelUtilities {
 
 	public static Date convertStringtoDate(String string) {
 
