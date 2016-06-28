@@ -39,7 +39,7 @@ Postgres database.
 * [x] Return detailed information about the Road Races from a local database.  
       This information will be broken down by race category, e.g. Waller Cup;
       A1 race is 130km starts at 11:00, ... A4 race is 50km starts at 11:20.
-* [ ] Provide a REST Resource to GET Road Races happening between two dates.
+* [x] Provide a REST Resource to GET Road Races happening between two dates.
 
 ## Version 3.0 Features
 
