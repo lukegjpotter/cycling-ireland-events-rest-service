@@ -12,11 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class RoadRaceEventDatabaseRecord {
 
     @Id @GeneratedValue(strategy=GenerationType.TABLE)
     private long id;
+    @JsonFormat(pattern="yyyyMMdd")
     private Date startDate, bookingsOpenDate, bookingsCloseDate;
     private String eventName, promotingClub, organiser, registrationLink, organiserPhoneNumber, organiserEmail,
             location, province;
