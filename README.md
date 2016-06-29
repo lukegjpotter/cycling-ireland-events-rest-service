@@ -34,7 +34,7 @@ Postgres database.
       This information will be just showing which race has which categories,
       e.g. Waller Cup has A+, A1, ..., Womens.
 
-## Version 2.0 Features - In Development
+## Version 2.0 Features - Released
 
 * [x] Return detailed information about the Road Races from a local database.  
       This information will be broken down by race category, e.g. Waller Cup;
