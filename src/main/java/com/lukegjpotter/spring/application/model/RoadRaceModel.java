@@ -1,33 +1,32 @@
 package com.lukegjpotter.spring.application.model;
 
-import static com.lukegjpotter.spring.application.util.ModelUtilities.convertStringToBoolean;
-import static com.lukegjpotter.spring.application.util.ModelUtilities.convertStringtoDate;
+import java.util.Date;
 
 public class RoadRaceModel extends CyclingEventModel {
 
 	private final String classification;
 	private final boolean isAPlus, isA1, isA2, isA3, isA4, isVets, isWoman, isJunior, isYouth;
 
-	public RoadRaceModel(String eventName, String startDate, String endDate, String day, String province,
-			String classification, String eventType, String isAPlus, String isA1, String isA2, String isA3, String isA4,
-			String isVets, String isWoman, String isJunior, Integer isYouth, String primaryContactPerson,
+	public RoadRaceModel(String eventName, Date startDate, Date endDate, String day, String province,
+			String classification, String eventType, boolean isAPlus, boolean isA1, boolean isA2, boolean isA3, boolean isA4,
+			boolean isVets, boolean isWoman, boolean isJunior, boolean isYouth, String primaryContactPerson,
 			String primaryContactPersonsEmail, String promotingClub, String distance, String hQLocation,
 			String signOnTime) {
 
-		super(eventName, convertStringtoDate(startDate), convertStringtoDate(endDate), day, province, eventType,
+		super(eventName, startDate, endDate, day, province, eventType,
 				primaryContactPerson, primaryContactPersonsEmail, promotingClub, Double.parseDouble(distance),
 				hQLocation, signOnTime);
 
 		this.classification = classification;
-		this.isAPlus = convertStringToBoolean(isAPlus);
-		this.isA1 = convertStringToBoolean(isA1);
-		this.isA2 = convertStringToBoolean(isA2);
-		this.isA3 = convertStringToBoolean(isA3);
-		this.isA4 = convertStringToBoolean(isA4);
-		this.isVets = convertStringToBoolean(isVets);
-		this.isWoman = convertStringToBoolean(isWoman);
-		this.isJunior = convertStringToBoolean(isJunior);
-		this.isYouth = convertStringToBoolean(isYouth.toString());
+		this.isAPlus = isAPlus;
+		this.isA1 = isA1;
+		this.isA2 = isA2;
+		this.isA3 = isA3;
+		this.isA4 = isA4;
+		this.isVets = isVets;
+		this.isWoman = isWoman;
+		this.isJunior = isJunior;
+		this.isYouth = isYouth;
 	}
 
 	public String getClassification() {

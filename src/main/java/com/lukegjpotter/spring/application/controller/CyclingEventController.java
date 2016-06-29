@@ -46,9 +46,4 @@ public class CyclingEventController {
         
 	    return repository.findByStartDateBetween(startDate, endDate);
     }
-
-	@Autowired
-	public void setCyclingEventService(CyclingEventService cyclingEventService) {
-		this.cyclingEventService = cyclingEventService;
-	}
 }

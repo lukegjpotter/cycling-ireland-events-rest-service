@@ -7,9 +7,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ModelUtilities {
 
-	public static Date convertStringtoDate(String string) {
+	public Date convertStringtoDate(String string) {
 
 		try {
 			return new SimpleDateFormat(Constants.DATE_FORMAT).parse(string);
@@ -18,7 +21,7 @@ public class ModelUtilities {
 		}
 	}
 
-	public static boolean convertStringToBoolean(String string) {
+	public boolean convertStringToBoolean(String string) {
 
 		Set<String> trueSet = new HashSet<String>(Arrays.asList("yes", "1"));
 

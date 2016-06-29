@@ -11,14 +11,9 @@ import com.lukegjpotter.spring.application.model.CyclingEventModel;
 @Service("cyclingEventsService")
 public class CyclingEventService {
 
-	private CyclingEventDataSource cyclingEventDataSource;
+    @Autowired private CyclingEventDataSource cyclingEventDataSource;
 
 	public List<CyclingEventModel> getAllRoadRaces() {
 		return cyclingEventDataSource.getAllRoadRaces();
-	}
-
-	@Autowired
-	public void setCyclingEventDataSource(CyclingEventDataSource cyclingEventDataSource) {
-		this.cyclingEventDataSource = cyclingEventDataSource;
 	}
 }

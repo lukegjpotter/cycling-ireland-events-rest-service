@@ -5,7 +5,8 @@ import java.util.Date;
 public class CyclingEventModel {
 
 	private final String eventName, day, province, eventType, primaryContactPerson, primaryContactPersonsEmail,
-			promotingClub, hQLocation, signOnTime;
+			promotingClub, signOnTime;
+	private String hQLocation;
 	private final double distance;
 	private final Date startDate, endDate;
 
@@ -58,6 +59,10 @@ public class CyclingEventModel {
 	public String gethQLocation() {
 		return hQLocation;
 	}
+	
+	public void sethQLocation(String hqLocation) {
+        this.hQLocation = hqLocation;
+    }
 
 	public String getSignOnTime() {
 		return signOnTime;

@@ -277,5 +277,9 @@ public class RoadRaceEventDatabaseRecord {
         this.getStageDetails().forEach(stagedetail -> sb.append(stagedetail.toString()));
         return sb.toString();
     }
+
+    public void addStageDetail(StageDetail stageDetail) {
+        this.stageDetails.add(stageDetail);
+    }
     
 }

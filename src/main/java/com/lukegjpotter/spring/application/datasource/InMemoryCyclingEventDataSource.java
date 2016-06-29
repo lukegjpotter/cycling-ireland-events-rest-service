@@ -18,14 +18,11 @@ import com.lukegjpotter.spring.application.service.CsvFileReaderService;
 public class InMemoryCyclingEventDataSource implements CyclingEventDataSource {
 
 	private static final Logger log = Logger.getLogger(InMemoryCyclingEventDataSource.class.getName());
-
-	private CsvFileReaderService csvFileReaderService;
-
-	// Lists of Event Types
 	private static List<CyclingEventModel> roadRaces;
 
-	@PostConstruct
-	public void populateRoadRacesMap() {
+	@Autowired private CsvFileReaderService csvFileReaderService;
+	
+	@PostConstruct public void populateRoadRacesMap() {
 
 		roadRaces = new ArrayList<>();
 		log.info("Populating the Road Races Map");
@@ -33,12 +30,8 @@ public class InMemoryCyclingEventDataSource implements CyclingEventDataSource {
 		log.info("Populated the Road Races Map. Number of Enteries is " + roadRaces.size());
 	}
 
-	public List<CyclingEventModel> getAllRoadRaces() {
+	@Override public List<CyclingEventModel> getAllRoadRaces() {
 		return roadRaces;
 	}
 
-	@Autowired
-	public void setCsvFileReaderService(CsvFileReaderService csvFileReaderService) {
-		this.csvFileReaderService = csvFileReaderService;
-	}
 }
