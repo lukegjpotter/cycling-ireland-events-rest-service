@@ -19,7 +19,7 @@ import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplic
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.service.CyclingEventService;
 import com.lukegjpotter.spring.application.testresources.TestResources;
-import com.lukegjpotter.spring.application.util.ModelUtilities;
+import com.lukegjpotter.spring.application.util.UtilsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, CyclingEventController.class })
@@ -29,7 +29,7 @@ public class CyclingEventControllerTest {
 	@Mock private CyclingEventService cyclingEventService;
 	List<CyclingEventModel> roadRaces;
 	
-	@Autowired ModelUtilities utils;
+	@Autowired UtilsService utils;
 	@Autowired TestResources tr;
 
 	@Before

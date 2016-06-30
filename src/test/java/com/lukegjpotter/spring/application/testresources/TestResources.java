@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceModel;
-import com.lukegjpotter.spring.application.util.ModelUtilities;
+import com.lukegjpotter.spring.application.util.UtilsService;
 
 @Component
 public class TestResources {
     
-    @Autowired ModelUtilities utils;
+    @Autowired UtilsService utils;
 
     public List<CyclingEventModel> getRoadRaceList() {
         

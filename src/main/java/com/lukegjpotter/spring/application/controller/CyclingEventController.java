@@ -12,14 +12,14 @@ import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceEventDatabaseRecord;
 import com.lukegjpotter.spring.application.repository.RoadRaceEventDatabaseRecordRepository;
 import com.lukegjpotter.spring.application.service.CyclingEventService;
-import com.lukegjpotter.spring.application.util.ControllerUtilsService;
+import com.lukegjpotter.spring.application.util.UtilsService;
 
 @RestController
 public class CyclingEventController {
 
 	@Autowired private CyclingEventService cyclingEventService;
 	@Autowired private RoadRaceEventDatabaseRecordRepository repository;
-	@Autowired private ControllerUtilsService utils;
+	@Autowired private UtilsService utils;
 
 	@RequestMapping("/roadraces")
 	public List<CyclingEventModel> getAllRoadRaces() {

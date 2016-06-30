@@ -15,10 +15,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, ModelUtilities.class })
-public class ModelUtilitiesTest {
+@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, UtilsService.class })
+public class UtilsServiceTest {
     
-    @Autowired ModelUtilities utils;
+    @Autowired UtilsService utils;
 
 	@Test public void testConvertProperDateStringtoDate() {
 

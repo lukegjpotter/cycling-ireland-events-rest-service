@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceModel;
 import com.lukegjpotter.spring.application.util.DateOrderedCyclingEventsListComparator;
-import com.lukegjpotter.spring.application.util.ModelUtilities;
+import com.lukegjpotter.spring.application.util.UtilsService;
 
 @Service("csvFileReaderService")
 public class CsvFileReaderService {
@@ -26,7 +26,7 @@ public class CsvFileReaderService {
 	private String csvFileLocation;
 	private final String csvDelimiter = ",";
 	
-	@Autowired ModelUtilities utils;
+	@Autowired UtilsService utils;
 
 	public List<CyclingEventModel> readRoadRaces() {
 
