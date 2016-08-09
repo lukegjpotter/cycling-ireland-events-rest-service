@@ -34,7 +34,6 @@ public class InMemoryCyclingEventDataSourceTest {
 	    lukeGjCupRoadRace = tr.getRoadRace();
 	    MockitoAnnotations.initMocks(this);
 	    when(csvFileReaderService.readRoadRaces()).thenReturn(tr.getRoadRaceList());
-		cyclingEventDataSource.populateRoadRacesMap();
 	}
 
 	@Test public void testGetAllRoadRacesWithOneRace() {

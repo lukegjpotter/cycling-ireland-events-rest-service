@@ -34,7 +34,6 @@ public class CyclingEventControllerTest {
 
 	@Before
 	public void setUp() {
-
 	    roadRaces = tr.getRoadRaceList();
 	    MockitoAnnotations.initMocks(this);
 		when(cyclingEventService.getAllRoadRaces()).thenReturn(roadRaces);

@@ -2,12 +2,15 @@ package com.lukegjpotter.spring.application.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CyclingEventModel {
 
 	private final String eventName, day, province, eventType, primaryContactPerson, primaryContactPersonsEmail,
 			promotingClub, signOnTime;
 	private String hQLocation;
 	private final double distance;
+	@JsonFormat(pattern="yyyyMMdd")
 	private final Date startDate, endDate;
 
 	public CyclingEventModel(String eventName, Date startDate, Date endDate, String day, String province,

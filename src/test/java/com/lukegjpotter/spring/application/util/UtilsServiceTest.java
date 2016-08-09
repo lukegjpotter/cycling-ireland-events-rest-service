@@ -19,6 +19,26 @@ import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplic
 public class UtilsServiceTest {
     
     @Autowired UtilsService utils;
+    
+    @Test public void testConvertProperDateYYYYMMDDStringtoDate() {
+
+        Date expected = new Date(1451606400000L);
+
+        String expectedDateString = "20160101";
+        Date actual = utils.convertYYYYMMDDToDate(expectedDateString);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test public void testConvertEmptyYYYYMMDDStringtoDate() {
+
+        Date expected = null;
+
+        String expectedDateString = "";
+        Date actual = utils.convertYYYYMMDDToDate(expectedDateString);
+
+        assertEquals(expected, actual);
+    }
 
 	@Test public void testConvertProperDateStringtoDate() {
 
