@@ -46,4 +46,10 @@ public class CyclingEventController {
         
 	    return repository.findByStartDateBetween(startDate, endDate);
     }
+	
+	@RequestMapping("/roadraces/month/{monthNumber}")
+	public List<RoadRaceEventDatabaseRecord> getRoadRacesInMonthNumber(@PathVariable("monthNumber") int monthNumber) {
+	    
+	    return repository.findByMonthNumber(monthNumber);
+	}
 }
