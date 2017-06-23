@@ -33,7 +33,7 @@ public class CsvFileReaderService {
 		BufferedReader bufferedReader = null;
 		List<CyclingEventModel> roadRaces = new ArrayList<>();
 
-		try {
+		try { // TODO Use Try-with-Resources here.
 			bufferedReader = new BufferedReader(new FileReader(csvFileLocation));
 			String line = "";
 
