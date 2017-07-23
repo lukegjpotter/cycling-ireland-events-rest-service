@@ -30,11 +30,9 @@ public class CsvFileReaderService {
 
 	public List<CyclingEventModel> readRoadRaces() {
 
-		BufferedReader bufferedReader = null;
 		List<CyclingEventModel> roadRaces = new ArrayList<>();
 
-		try { // TODO Use Try-with-Resources here.
-			bufferedReader = new BufferedReader(new FileReader(csvFileLocation));
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(csvFileLocation))) {
 			String line = "";
 
 			while ((line = bufferedReader.readLine()) != null) {
@@ -43,14 +41,8 @@ public class CsvFileReaderService {
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				bufferedReader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
 		}
+		
 		Collections.sort(roadRaces, new DateOrderedCyclingEventsListComparator());
 		return roadRaces;
 	}
