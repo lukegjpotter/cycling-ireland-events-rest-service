@@ -40,7 +40,7 @@ public class CyclingEventControllerTest {
     }
 
     @Test
-    public void testGetAllRoadRaces() {
+    public void testRoadRacesInMonth() {
         assertEquals(roadRaces, cyclingEventController.getRoadRacesInMonthNumber(6));
     }
 }
