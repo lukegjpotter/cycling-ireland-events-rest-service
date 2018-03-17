@@ -36,21 +36,21 @@ public class UtilsServiceTest {
     }
 
     @Test
-    public void testConvertProperDateStringtoDate() {
+    public void testConvertProperDateStringToDate() {
 
         Date expected = new Date(1451606400000L);
 
         String expectedDateString = "01/01/2016";
-        Date actual = utils.convertStringtoDate(expectedDateString);
+        Date actual = utils.convertStringToDate(expectedDateString);
 
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testConvertEmptyStringtoDate() {
+    public void testConvertEmptyStringToDate() {
 
         String expectedDateString = "";
-        Date actual = utils.convertStringtoDate(expectedDateString);
+        Date actual = utils.convertStringToDate(expectedDateString);
 
         assertEquals(actual, null);
     }

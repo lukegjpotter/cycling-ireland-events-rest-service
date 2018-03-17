@@ -1,13 +1,14 @@
 package com.lukegjpotter.spring.application.controller;
 
-import com.lukegjpotter.spring.application.model.CyclingEventModel;
-import com.lukegjpotter.spring.application.service.CyclingEventService;
+import com.lukegjpotter.spring.application.model.RoadRaceEventDatabaseRecord;
+import com.lukegjpotter.spring.application.repository.RoadRaceEventDatabaseRecordRepository;
 import com.lukegjpotter.spring.application.testresources.TestResources;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,21 +26,21 @@ public class CyclingEventControllerTest {
     @InjectMocks
     private CyclingEventController cyclingEventController;
     @Mock
-    private CyclingEventService cyclingEventService;
+    private RoadRaceEventDatabaseRecordRepository repository;
     @Autowired
     private TestResources tr;
 
-    private List<CyclingEventModel> roadRaces;
+    private List<RoadRaceEventDatabaseRecord> roadRaces;
 
     @Before
     public void setUp() {
         roadRaces = tr.getRoadRaceList();
         MockitoAnnotations.initMocks(this);
-        when(cyclingEventService.getAllRoadRaces()).thenReturn(roadRaces);
+        when(repository.findByMonthNumber(Mockito.anyInt())).thenReturn(roadRaces);
     }
 
     @Test
     public void testGetAllRoadRaces() {
-        assertEquals(roadRaces, cyclingEventController.getAllRoadRaces());
+        assertEquals(roadRaces, cyclingEventController.getRoadRacesInMonthNumber(6));
     }
 }

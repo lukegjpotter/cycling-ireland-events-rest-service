@@ -1,13 +1,11 @@
 package com.lukegjpotter.spring.application.controller;
 
-import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceEventDatabaseRecord;
 import com.lukegjpotter.spring.application.repository.RoadRaceEventDatabaseRecordRepository;
-import com.lukegjpotter.spring.application.service.CyclingEventService;
 import com.lukegjpotter.spring.application.util.UtilsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -17,16 +15,10 @@ import java.util.Optional;
 @RestController
 public class CyclingEventController {
 
-	@Autowired private CyclingEventService cyclingEventService;
 	@Autowired private RoadRaceEventDatabaseRecordRepository repository;
 	@Autowired private UtilsService utils;
 
-	@RequestMapping("/roadraces")
-	public List<CyclingEventModel> getAllRoadRaces() {
-		return cyclingEventService.getAllRoadRaces();
-	}
-	
-	@RequestMapping("/roadraces/1")
+	@GetMapping("/roadraces/1")
     public Optional<RoadRaceEventDatabaseRecord> getRoadRaceId1() {
         return repository.findById(1L);
     }
@@ -38,7 +30,7 @@ public class CyclingEventController {
 	 * @param searchEndDate String in the form of yyyyMMdd e.g. 20161231 is Dec. 31 2016.
 	 * @return The List of {@code RoadRaceEventDatabaseRecord}s that are between the dates.
 	 */
-	@RequestMapping("/roadraces/between/{searchStartDate}/and/{searchEndDate}")
+	@GetMapping("/roadraces/between/{searchStartDate}/and/{searchEndDate}")
     public List<RoadRaceEventDatabaseRecord> getRoadRacesBetween(@PathVariable("searchStartDate") String searchStartDate, @PathVariable("searchEndDate") String searchEndDate) {
 	    
 	    Date startDate = utils.convertYYYYMMDDToDate(searchStartDate);
@@ -46,8 +38,8 @@ public class CyclingEventController {
         
 	    return repository.findByStartDateBetween(startDate, endDate);
     }
-	
-	@RequestMapping("/roadraces/month/{monthNumber}")
+
+	@GetMapping("/roadraces/month/{monthNumber}")
 	public List<RoadRaceEventDatabaseRecord> getRoadRacesInMonthNumber(@PathVariable("monthNumber") int monthNumber) {
 	    
 	    return repository.findByMonthNumber(monthNumber);

@@ -1,13 +1,13 @@
 package com.lukegjpotter.spring.application.util;
 
+import org.springframework.stereotype.Service;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.springframework.stereotype.Service;
 
 @Service
 public class UtilsService {
@@ -20,8 +20,8 @@ public class UtilsService {
             return null;
         }
     }
-    
-    public Date convertStringtoDate(String string) {
+
+    public Date convertStringToDate(String string) {
 
         try {
             return new SimpleDateFormat(Constants.DATE_FORMAT).parse(string);
@@ -32,12 +32,10 @@ public class UtilsService {
 
     public boolean convertStringToBoolean(String string) {
 
-        Set<String> trueSet = new HashSet<String>(Arrays.asList("yes", "1"));
+        Set<String> trueSet = new HashSet<>(Arrays.asList("yes", "1"));
 
-        if (string != null && !string.isEmpty() && trueSet.contains(string.toLowerCase()))
-            return true;
+        return string != null && !string.isEmpty() && trueSet.contains(string.toLowerCase());
 
-        return false;
     }
 
 }

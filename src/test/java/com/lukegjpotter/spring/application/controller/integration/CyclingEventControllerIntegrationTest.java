@@ -1,9 +1,9 @@
 package com.lukegjpotter.spring.application.controller.integration;
 
 import com.lukegjpotter.spring.application.controller.CyclingEventController;
-import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceEventDatabaseRecord;
 import com.lukegjpotter.spring.application.testresources.TestResources;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +16,13 @@ import static org.junit.Assert.assertTrue;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
+@Ignore
 public class CyclingEventControllerIntegrationTest {
 
     @Autowired
     private CyclingEventController controller;
     @Autowired
     private TestResources tr;
-
-    @Test public void testGetAllRoadRaces() {
-        List<CyclingEventModel> actual = controller.getAllRoadRaces();
-        CyclingEventModel expected = tr.getCsvRoadRace();
-
-        assertTrue(actual.contains(expected));
-    }
 
     @Test public void testGetRoadRaceId1() {
         String actual = controller.getRoadRaceId1().get().getEventName();
