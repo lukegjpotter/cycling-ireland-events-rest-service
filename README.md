@@ -30,29 +30,6 @@ Postgres database.
    `ctrl+C`
 
 
-## Version 1.0 Features - Released
+## Current Status
 
-* [x] Returns the basic information about the Road Races from the CSV file.  
-      This information will be just showing which race has which categories,
-      e.g. Waller Cup has A+, A1, ..., Womens.
-
-## Version 2.0 Features - Released
-
-* [x] Return detailed information about the Road Races from a local database.  
-      This information will be broken down by race category, e.g. Waller Cup;
-      A1 race is 130km starts at 11:00, ... A4 race is 50km starts at 11:20.
-* [x] Provide a REST Resource to GET Road Races happening between two dates.
-
-## Version 3.0 Features
-
-* [ ] Return Road Races from a Heroku Postgres database.
-
-## Version 4.0 Features
-
-* [ ] Return very detailed information about the Road Races.  
-      This information will include which races are part of the Men's Nation
-      League and the Women's National League.
-
-## Version 5.0 Features
-
-* [ ] A way to check if Events have been cancelled, postponed and/or rescheduled.
+Check the [Projects Tab](https://github.com/lukegjpotter/cycling-ireland-events-rest-service/projects) for the latest status of the project.
