@@ -1,18 +1,18 @@
 package com.lukegjpotter.spring.application.controller;
 
-import java.util.Date;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.lukegjpotter.spring.application.model.CyclingEventModel;
 import com.lukegjpotter.spring.application.model.RoadRaceEventDatabaseRecord;
 import com.lukegjpotter.spring.application.repository.RoadRaceEventDatabaseRecordRepository;
 import com.lukegjpotter.spring.application.service.CyclingEventService;
 import com.lukegjpotter.spring.application.util.UtilsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CyclingEventController {
@@ -27,8 +27,8 @@ public class CyclingEventController {
 	}
 	
 	@RequestMapping("/roadraces/1")
-    public RoadRaceEventDatabaseRecord getRoadRaceId1() {
-        return repository.findOne(1L);
+    public Optional<RoadRaceEventDatabaseRecord> getRoadRaceId1() {
+        return repository.findById(1L);
     }
 	
 	/**

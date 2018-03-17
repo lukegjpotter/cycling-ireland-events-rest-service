@@ -1,25 +1,22 @@
 package com.lukegjpotter.spring.application.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.Date;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.lukegjpotter.spring.application.CyclingIrelandEventsRestServiceApplication;
+import java.util.Date;
 
+import static org.junit.Assert.*;
+
+@SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { CyclingIrelandEventsRestServiceApplication.class, UtilsService.class })
 public class UtilsServiceTest {
-    
-    @Autowired UtilsService utils;
-    
+
+    @Autowired
+    private UtilsService utils;
+
     @Test public void testConvertProperDateYYYYMMDDStringtoDate() {
 
         Date expected = new Date(1451606400000L);
@@ -32,47 +29,49 @@ public class UtilsServiceTest {
 
     @Test public void testConvertEmptyYYYYMMDDStringtoDate() {
 
-        Date expected = null;
-
         String expectedDateString = "";
         Date actual = utils.convertYYYYMMDDToDate(expectedDateString);
+
+        assertEquals(actual, null);
+    }
+
+    @Test
+    public void testConvertProperDateStringtoDate() {
+
+        Date expected = new Date(1451606400000L);
+
+        String expectedDateString = "01/01/2016";
+        Date actual = utils.convertStringtoDate(expectedDateString);
 
         assertEquals(expected, actual);
     }
 
-	@Test public void testConvertProperDateStringtoDate() {
+    @Test
+    public void testConvertEmptyStringtoDate() {
 
-		Date expected = new Date(1451606400000L);
+        String expectedDateString = "";
+        Date actual = utils.convertStringtoDate(expectedDateString);
 
-		String expectedDateString = "01/01/2016";
-		Date actual = utils.convertStringtoDate(expectedDateString);
+        assertEquals(actual, null);
+    }
 
-		assertEquals(expected, actual);
-	}
+    @Test
+    public void testConvertYesStringToBoolean() {
+        assertTrue(utils.convertStringToBoolean("Yes"));
+    }
 
-	@Test public void testConvertEmptyStringtoDate() {
+    @Test
+    public void testConvertEmptyStringToBoolean() {
+        assertFalse(utils.convertStringToBoolean(""));
+    }
 
-		Date expected = null;
+    @Test
+    public void testConvertOneIntegerToBoolean() {
+        assertTrue(utils.convertStringToBoolean(Integer.toString(1)));
+    }
 
-		String expectedDateString = "";
-		Date actual = utils.convertStringtoDate(expectedDateString);
-
-		assertEquals(expected, actual);
-	}
-
-	@Test public void testConvertYesStringToBoolean() {
-		assertTrue(utils.convertStringToBoolean("Yes"));
-	}
-
-	@Test public void testConvertEmptyStringToBoolean() {
-		assertFalse(utils.convertStringToBoolean(""));
-	}
-
-	@Test public void testConvertOneIntegerToBoolean() {
-		assertTrue(utils.convertStringToBoolean(new Integer(1).toString()));
-	}
-
-	@Test public void testConvertZeroIntegerToBoolean() {
-		assertFalse(utils.convertStringToBoolean(new Integer(0).toString()));
-	}
+    @Test
+    public void testConvertZeroIntegerToBoolean() {
+        assertFalse(utils.convertStringToBoolean(Integer.toString(0)));
+    }
 }
