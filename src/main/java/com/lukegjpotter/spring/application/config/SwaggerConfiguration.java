@@ -1,4 +1,4 @@
-package com.lukegjpotter.spring.application;
+package com.lukegjpotter.spring.application.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
