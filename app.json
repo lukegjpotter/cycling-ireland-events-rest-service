@@ -1,5 +1,5 @@
 {
-  "name": "Cycling Ireland Events REST Service"
+  "name": "Cycling Ireland Events REST Service",
   "description": "A REST Servie for Cycling Ireland Events",
   "repository": "https://github.com/lukegjpotter/cycling-ireland-events-rest-service",
   "logo": "https://node-js-sample.herokuapp.com/node.svg",
