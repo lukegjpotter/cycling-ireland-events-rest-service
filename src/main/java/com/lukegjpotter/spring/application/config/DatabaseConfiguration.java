@@ -1,11 +1,9 @@
 package com.lukegjpotter.spring.application.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
@@ -16,29 +14,49 @@ import java.net.URISyntaxException;
 public class DatabaseConfiguration {
 
     @Autowired
-    Environment environment;
+    private Environment environment;
 
     @Bean
-    public DataSource dataSource() throws URISyntaxException {
+    public DataSource dataSource() {
 
-        URI dbUri = new URI(environment.getProperty("DATABASE_URL", "postgres://postgres:@localhost:5432/cyclingirelandevents"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password;
-        try {
-            password = dbUri.getUserInfo().split(":")[1];
-        } catch (ArrayIndexOutOfBoundsException ignored) {
-            password = "";
-        }
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-        String driverClassName = "org.postgresql.Driver";
+        DatabaseConfigurationModel db = parseDatabaseUrlEnvironmentalVariable();
 
         return DataSourceBuilder
                 .create()
-                .url(dbUrl)
-                .username(username)
-                .password(password)
-                .driverClassName(driverClassName)
+                .url(db.url)
+                .username(db.username)
+                .password(db.password)
+                .driverClassName(db.driver)
                 .build();
+    }
+
+    private DatabaseConfigurationModel parseDatabaseUrlEnvironmentalVariable() {
+
+        DatabaseConfigurationModel dcm = new DatabaseConfigurationModel();
+
+        URI dbUri = null;
+        try {
+            dbUri = new URI(environment.getProperty("DATABASE_URL", "postgres://postgres:@localhost:5432/cyclingirelandevents"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            dcm.username = dbUri.getUserInfo().split(":")[0];
+        } catch (ArrayIndexOutOfBoundsException ignored) {
+            dcm.username = "";
+        }
+
+        try {
+            dcm.password = dbUri.getUserInfo().split(":")[1];
+        } catch (ArrayIndexOutOfBoundsException ignored) {
+            dcm.password = "";
+        }
+
+        dcm.url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+        dcm.driver = "org.postgresql.Driver";
+
+        return dcm;
     }
 }
