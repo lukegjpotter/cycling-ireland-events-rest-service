@@ -21,11 +21,12 @@ Postgres database.
 ## Build, Run and Test
 
 1. To Build and Run the Application, open a Terminal and use:  
-   `./gradlew build && java -jar build/libs/cycling-ireland-events-rest-service-*.jar`
+   `./gradlew build bootRun`
 1. To Test that the running Application is functional, open a new Terminal tab
    and use:  
    `curl localhost:8080/roadraces/1` to read from the local database.
-   `curl localhost:8080/roadraces` to read from the CSV file.
+1. API documentation is available via Swagger UI go to:  
+   http://localhost:8080/swagger-ui.html
 1. To Stop the Application, in the first Terminal, use:  
    `ctrl+C`
 
