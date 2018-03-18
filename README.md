@@ -34,3 +34,8 @@ Postgres database.
 ## Current Status
 
 Check the [Projects Tab](https://github.com/lukegjpotter/cycling-ireland-events-rest-service/projects) for the latest status of the project.
+
+## Live on Heroku
+
+Swagger Documentation is available.  
+For the [CyclingEventController](https://cyclingirelandevents.herokuapp.com/swagger-ui.html#/cycling-event-controller).
