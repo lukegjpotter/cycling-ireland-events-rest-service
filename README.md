@@ -32,7 +32,10 @@ To Build and Run the Application:
 
 Check the [Projects Tab](https://github.com/lukegjpotter/cycling-ireland-events-rest-service/projects) for the latest status of the project.
 
-## Live on Heroku
+## API Documentation
 
-Swagger Documentation is available.  
+Swagger Documentation is available via the Heroku app.  
 For the [CyclingEventController](https://cyclingirelandevents.herokuapp.com/swagger-ui.html#/cycling-event-controller).
+
+The Postman Collection to make these calls is available: [BikeRaceIreland Rest Service
+](https://documenter.getpostman.com/view/3947605/RVnZgxhm).
