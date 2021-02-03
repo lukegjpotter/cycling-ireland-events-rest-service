@@ -3,5 +3,6 @@
   "description": "A REST Servie for Cycling Ireland Events",
   "repository": "https://github.com/lukegjpotter/cycling-ireland-events-rest-service",
   "logo": "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
-  "keywords": ["java", "REST", "springboot"]
+  "keywords": ["java", "REST", "springboot"],
+  "addons": ["heroku-postgresql:hobby-dev"]
 }
