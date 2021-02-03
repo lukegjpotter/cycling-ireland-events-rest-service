@@ -2,6 +2,6 @@
   "name": "Cycling Ireland Events REST Service",
   "description": "A REST Servie for Cycling Ireland Events",
   "repository": "https://github.com/lukegjpotter/cycling-ireland-events-rest-service",
-  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "logo": "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
   "keywords": ["java", "REST", "springboot"]
 }
